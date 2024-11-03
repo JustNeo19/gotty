@@ -1,5 +1,5 @@
 # Base image can be selected based on the application requirements
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 # Install necessary packages without restrictions
 RUN apt-get update && apt-get install -y \
@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     git \
     net-tools \
     iputils-ping \
-    python3-pip \
     && apt-get clean
 
 # Set the working directory
@@ -20,7 +19,6 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install Python packages if required (optional)
-RUN pip3 install -r requirements.txt
 
 # Expose the necessary ports
 EXPOSE 80
